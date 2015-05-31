@@ -12,6 +12,9 @@
  * On python3.x: python -m http.server
 * Go to: http://localhost:8000
 
+## ArcGIS API for Javascript ##
+* https://developers.arcgis.com/javascript/jshelp/
+
 ## Datasets ##
 High Schools Graduation and Dropout Rates 2013:
 > https://goo.gl/qCWXJZ
