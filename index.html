@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.13/esri/css/esri.css">
+	<script src="http://js.arcgis.com/3.13/"></script>
+    <title></title>
+  </head>
+  <body class="claro">
+  <div id="mapDiv"></div>
+  </body>
+	<script type="text/javascript">
+		var map;
+		require(["esri/map", "dojo/domReady!"], function(Map) {
+		  map = new Map("mapDiv", {
+		    center: [-56.049, 38.485],
+		    zoom: 3,
+		    basemap: "streets"
+		  });
+		});
+	</script>
+</html>
