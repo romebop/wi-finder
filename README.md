@@ -11,3 +11,6 @@
  * On python2.x: python -m SimpleHTTPServer
  * On python3.x: python -m http.server
 * Go to: http://localhost:8000
+
+## ArcGIS API for Javascript ##
+* https://developers.arcgis.com/javascript/jshelp/
