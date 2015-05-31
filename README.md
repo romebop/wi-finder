@@ -1,3 +1,5 @@
+![Team 7](http://img2.wikia.nocookie.net/__cb20091109000210/naruto/images/9/9d/Teamkakashi.jpg)
+
 ## TEAM 7 Members: ##
 * Nader
 * James
