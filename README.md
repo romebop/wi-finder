@@ -1,6 +1,6 @@
 # hack-smc-team7
 
-nader
-james
-rome
-ace
+* nader
+* james
+* rome
+* ace
