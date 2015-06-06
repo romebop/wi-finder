@@ -13,8 +13,8 @@ Setup Git:
 Get Flask:
 
 * [Install Flask](http://flask.pocoo.org/docs/0.10/installation/) (& virtualenv)
-* ([Familiarize Flask](http://flask.pocoo.org/docs/0.10/quickstart/))
-* ([Familiarize Jinja](http://jinja.pocoo.org/))
+* [Familiarize Flask](http://flask.pocoo.org/docs/0.10/quickstart/)
+* [Familiarize Jinja](http://jinja.pocoo.org/) (Python Template Engine)
 
 Run App Locally:
 
