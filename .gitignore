@@ -6,3 +6,4 @@ bin/
 lib/
 include/
 venv/
+results.txt
