@@ -10,7 +10,9 @@ address = "1900 Coyote Point Drive"
 
 # dictionary structure - {(latitude, longitude): (url, name)}
 def output(yelp_json):
-    outDict = {}    
+    outDict = {}
+    if 'businesses' not in yelp_json:
+        return {}
     for business in yelp_json["businesses"]:
         if business["is_closed"] == False:
             outDict[(business["location"]["coordinate"]["latitude"], business["location"]["coordinate"]["longitude"])] = (business["url"], business["name"])

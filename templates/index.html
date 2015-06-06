@@ -51,7 +51,19 @@
   <div class="jumbotron" style="height: 800px">
     <center>
     <h1>Find Wi-Fi Hotspots</h1>
-    <p><button class="btn btn-primary btn-lg" role="button" onclick="getLocation()">Find Hotspots!</button></p>
+    <p><button class="btn btn-primary btn-lg" role="button" onclick="getLocation()">Use Current Location</button></p>
+            <form role="form" action="/wifi" id="host-form">
+                <div class="form-group" style="display:inline;">
+                    <div class="input-group">
+                        <input type="text" class="form-control" style="border-bottom-left-radius: 4px;border-top-left-radius: 4px;" name="address" id="hostname-box" placeholder="Some Address goes here" value="">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </form>
     <div class="spinner" style="display:none" id="spinner">
       <div class="dot1"></div>
       <div class="dot2"></div>

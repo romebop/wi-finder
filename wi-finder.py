@@ -12,11 +12,14 @@ def index():
 def wifi_results():
     latitude = request.args.get('latitude', '')
     longitude = request.args.get('longitude', '')
+    address = request.args.get('address', '')
 
-    if latitude == '' or longitude == '':
-        return 'Cannot get coordinates'
-
-    yelp_results = yelp_scrape.get_yelp(latitude, longitude)
+    if latitude != '' and longitude != '':
+        yelp_results = yelp_scrape.get_yelp_coord(latitude, longitude)
+    elif address != '':
+        yelp_results = yelp_scrape.get_yelp_address(address)
+    else:
+        return "SOMETHING WENT WRONG"
 
     return str(yelp_results)
 
