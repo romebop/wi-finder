@@ -30,19 +30,19 @@ Public Wifi Locations and Status:
 Public Wifi Use Over Time:
 > https://goo.gl/XsCyz0
 
-(Potentially) Useful Links
-==========================
-D3:
+(Potentially) Useful Links:
+---------------------------
+D3
 > https://github.com/mbostock/d3/wiki
 
 ArcGIS API for Javascript
 > https://developers.arcgis.com/javascript/jshelp/
 
-Socrata Open Data API:
+Socrata Open Data API
 > https://github.com/xmunoz/sodapy
 
-Yelp API:
+Yelp API
 > https://www.yelp.com/developers/documentation
 
-Python Scraper:
+Python Scraper
 > http://scrapy.org/
