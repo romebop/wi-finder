@@ -1,31 +1,35 @@
-![Team 7](http://img2.wikia.nocookie.net/__cb20091109000210/naruto/images/9/9d/Teamkakashi.jpg)
-
-## TEAM 7 Members: ##
-* Nader
-* James
-* Saerom
+## TEAM 7 Members ##
 * Ace
+* James
+* Nader
+* Saerom
 
 ## Getting Started ##
-* git clone https://github.com/romebop/hack-smc-team7.git
-* cd hack-smc-team7
-* Start Web Server
- * On python2.x: python -m SimpleHTTPServer
- * On python3.x: python -m http.server
-* Go to: http://localhost:8000
+Setup Git:
+	* git clone https://github.com/romebop/hack-smc-team7.git
+	* cd hack-smc-team7
+Get Flask:
+	* [install flask (& virtualenv)](http://flask.pocoo.org/docs/0.10/installation/)
+	* ([familiarize flask](http://flask.pocoo.org/docs/0.10/quickstart/))
+Run App Locally:
+	* python wi-finder.py
 
-## ArcGIS API for Javascript ##
-* https://developers.arcgis.com/javascript/jshelp/
+## SMC Datasets ##
+Public Wifi Locations and Status:
+> https://goo.gl/1HK0MD
 
-## Datasets ##
-High Schools Graduation and Dropout Rates 2013:
-> https://goo.gl/qCWXJZ
+Public Wifi Use Over Time:
+> https://goo.gl/XsCyz0
 
-Student Demographics by School: 
-> https://goo.gl/vwMJw1
+## (Potentially) Useful Links
+Yelp API:
+> https://www.yelp.com/developers/documentation
 
-Adjusted Percent of Students Eligible for Free and Reduced Price Meals:
-> https://goo.gl/xR17KJ
+Python Scraper:
+> http://scrapy.org/
 
-San Mateo County Education Map:
-> https://goo.gl/Ahwxvg
+ArcGIS API for Javascript
+> https://developers.arcgis.com/javascript/jshelp/
+
+D3:
+> https://github.com/mbostock/d3/wiki

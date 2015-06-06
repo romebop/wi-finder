@@ -1,30 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="http://js.arcgis.com/3.13/esri/css/esri.css">
-	<script src="http://js.arcgis.com/3.13/"></script>
-    <title></title>
+    <meta charset="utf-8">
+    <title>Wi-Finder</title>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="http://documentcloud.github.com/underscore/underscore.js"></script>
+    
+    <style>
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: black;
+      shape-rendering: crispEdges;
+    }
+    .axis text {
+      font-family: sans-serif;
+      font-size: 11px;
+    }
+    </style>
+  
   </head>
-  <body class="claro">
-  <div id="mapDiv"></div>
+
+  <body>
+    <select id="paradigmSelect"></select>
+
+    <script>
+    </script>
   </body>
-	<script type="text/javascript">
-		var map;
-		require(["esri/map", "dojo/domReady!"], function(Map) {
-		  map = new Map("mapDiv", {
-		    center: [-56.049, 38.485],
-		    zoom: 3,
-		    basemap: "streets"
-		  });
-		});
-	</script>
-	<style>
-  html, body, #mapDiv {
-    padding: 0;
-    margin: 0;
-    height: 100%;
-  }
-</style>
+
 </html>
