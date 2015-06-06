@@ -15,8 +15,8 @@ Git:
 Set up environment:
 
 * pip install virtualenv
-* virtualenv venv
-* . venv/bin/activate
+* virtualenv env
+* . env/bin/activate
 * pip install -r requirements.txt
 
 

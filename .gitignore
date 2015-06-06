@@ -4,3 +4,4 @@ env/
 bin/
 lib/
 include/
+venv/
