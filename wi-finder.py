@@ -3,6 +3,7 @@ import yelp_scrape
 from wifi_scraper import scrape_for_wifi
 
 from itertools import islice
+import json
 
 def take(n, iterable):
     "Return first n items of the iterable as a list"
@@ -27,12 +28,17 @@ def wifi_results():
     else:
         return "SOMETHING WENT WRONG"
 
-    new_results = {}
+    new_results = []
     for key, value in take(10,yelp_results.iteritems()):
         if scrape_for_wifi.has_wifi(value[0]) == "Yes":
-            new_results[key] = value
+            item = {}
+            item['url'] = value[0]
+            item['name'] = value[1]
+            item['latitude'] = key[0]
+            item['longitude'] = key[1]
+            new_results.append(item)
 
-    return str(new_results)
+    return json.dumps(new_results)
 
 if __name__ == '__main__':
     app.run(debug=True)
