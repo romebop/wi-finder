@@ -4,6 +4,7 @@ import json
 import pprint
 
 
+
 latitude = 37.58975467000005
 longitide = -122.31838430299996
 address = "1900 Coyote Point Drive"
