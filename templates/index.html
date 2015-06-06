@@ -12,73 +12,7 @@
 
     <link rel="stylesheet" href="http://js.arcgis.com/3.13/dijit/themes/claro/claro.css">
     <link rel="stylesheet" href="http://js.arcgis.com/3.13/esri/css/esri.css">
-    <link rel="stylesheet" href="css/layout.css">
-
-
-    <script src="http://js.arcgis.com/3.13/"></script>
-    <script>
-      require([
-        "dojo/parser",
-        "dojo/ready",
-        "dijit/layout/BorderContainer",
-        "dijit/layout/ContentPane",
-        "dojo/dom",
-        "esri/map", 
-        "esri/urlUtils",
-        "esri/arcgis/utils",
-        "esri/dijit/Legend",
-        "esri/dijit/Scalebar",
-        "dojo/domReady!"
-      ], function(
-        parser,
-        ready,
-        BorderContainer,
-        ContentPane,
-        dom,
-        Map,
-        urlUtils,
-        arcgisUtils,
-        Legend,
-        Scalebar
-      ) {
-        ready(function(){
-
-        parser.parse();
-
-
-        arcgisUtils.createMap("49edee94f66c4d6d8b9df5eaa2ba49ca","map").then(function(response){
-          //update the app 
-          dom.byId("title").innerHTML = response.itemInfo.item.title;
-          dom.byId("subtitle").innerHTML = response.itemInfo.item.snippet;
-
-          var map = response.map;
-
-
-
-          //add the scalebar 
-          var scalebar = new Scalebar({
-            map: map,
-            scalebarUnit: "english"
-          });
-
-          //add the legend. Note that we use the utility method getLegendLayers to get 
-          //the layers to display in the legend from the createMap response.
-          var legendLayers = arcgisUtils.getLegendLayers(response); 
-          var legendDijit = new Legend({
-            map: map,
-            layerInfos: legendLayers
-          },"legend");
-          legendDijit.startup();
-
-
-        });
-
-
-        });
-
-      });
-    </script>
-
+    <link rel="stylesheet" href="static/css/layout.css">
 
 
     <title>Wi-Finder</title>
@@ -122,18 +56,11 @@
       <div class="dot1"></div>
       <div class="dot2"></div>
     </div>
+    </center>
     <div id="location_info"></div>
     <div id="mainWindow" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline'" style="width:100%; height:100%;">
-      <div id="header" class="shadow roundedCorners" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">
-<!--         <div id="title"></div>
-        <div id="subtitle"></div> -->
-      </div>
       <div id="map" class="roundedCorners shadow" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'"></div>
-      <div id="rightPane" class="roundedCorners shadow" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'right'" >
-<!--         <div id="legend"></div> -->
-      </div>
     </div>
-    </center>
   </div>
 </div> <!-- /container -->
 
@@ -141,6 +68,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="http://js.arcgis.com/3.13/"></script>
     <script>
     var x = document.getElementById("location_info");
     
@@ -160,6 +88,67 @@
         window.location.href = "/wifi?latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude;
     }
     </script>
+    <script>
+      require([
+        "dojo/parser",
+        "dojo/ready",
+        "dijit/layout/BorderContainer",
+        "dijit/layout/ContentPane",
+        "dojo/dom",
+        "esri/map", 
+        "esri/urlUtils",
+        "esri/arcgis/utils",
+        "esri/dijit/Legend",
+        "esri/dijit/Scalebar",
+        "dojo/domReady!"
+      ], function(
+        parser,
+        ready,
+        BorderContainer,
+        ContentPane,
+        dom,
+        Map,
+        urlUtils,
+        arcgisUtils,
+        Legend,
+        Scalebar
+      ) {
+        ready(function(){
 
+        parser.parse();
+
+
+        arcgisUtils.createMap("49edee94f66c4d6d8b9df5eaa2ba49ca","map").then(function(response){
+          //update the app 
+//          dom.byId("title").innerHTML = response.itemInfo.item.title;
+//          dom.byId("subtitle").innerHTML = response.itemInfo.item.snippet;
+
+          var map = response.map;
+
+
+
+          //add the scalebar 
+          var scalebar = new Scalebar({
+            map: map,
+            scalebarUnit: "english"
+          });
+
+          //add the legend. Note that we use the utility method getLegendLayers to get 
+          //the layers to display in the legend from the createMap response.
+          var legendLayers = arcgisUtils.getLegendLayers(response); 
+          var legendDijit = new Legend({
+            map: map,
+            layerInfos: legendLayers
+          },"legend");
+          legendDijit.startup();
+
+
+        });
+
+
+        });
+
+      });
+    </script>
   </body>
 </html>
