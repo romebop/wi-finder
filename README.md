@@ -12,8 +12,8 @@ Setup Git:
 
 Get Flask:
 
-* [install flask (& virtualenv)](http://flask.pocoo.org/docs/0.10/installation/)
-* ([familiarize flask](http://flask.pocoo.org/docs/0.10/quickstart/))
+* [Install Flask](http://flask.pocoo.org/docs/0.10/installation/) (& virtualenv)
+* ([Familiarize Flask](http://flask.pocoo.org/docs/0.10/quickstart/))
 
 Run App Locally:
 
