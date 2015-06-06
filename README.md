@@ -12,19 +12,18 @@ Git:
 * git clone https://github.com/romebop/hack-smc-team7.git
 * cd hack-smc-team7
 
-Flask:
+Set up environment:
 
-* [Install Flask](http://flask.pocoo.org/docs/0.10/installation/) (& virtualenv)
-	* pip install virtualenv
-	* virtualenv venv
-	* . venv/bin/activate
-	* pip install Flask
+* pip install virtualenv
+* virtualenv venv
+* . venv/bin/activate
+* pip install -r requirements.txt
+
+
+Documentation:
+
 * [Familiarize Flask](http://flask.pocoo.org/docs/0.10/quickstart/)
 * [Familiarize Jinja](http://jinja.pocoo.org/) (Python Templating)
-
-Socrata:
-
-* pip install sodapy
 
 App:
 
