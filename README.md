@@ -30,8 +30,8 @@ App:
 
 * python wi-finder.py
 
-SMC Datasets
-------------
+SMC Datasets (from [Open Data Portal](https://data.smcgov.org/))
+----------------------------------------------------------------
 Public Wifi Locations and Status
 > https://goo.gl/1HK0MD
 
