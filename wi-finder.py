@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', stuff=[])
 
 @app.route('/wifi')
 def wifi_results():
@@ -38,7 +38,7 @@ def wifi_results():
             item['longitude'] = key[1]
             new_results.append(item)
 
-    return json.dumps(new_results)
+    return render_template('index.html', stuff=json.dumps(new_results));
 
 if __name__ == '__main__':
     app.run(debug=True)

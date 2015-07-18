@@ -9,6 +9,9 @@ latitude = 37.58975467000005
 longitide = -122.31838430299996
 address = "1900 Coyote Point Drive"
 
+
+auth = OAuth1(INSERT_KEY)
+
 # dictionary structure - {(latitude, longitude): (url, name)}
 def output(yelp_json):
     outDict = {}
