@@ -94,8 +94,8 @@ function getLocation() {
 }
 
 function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
+    //x.innerHTML = "Latitude: " + position.coords.latitude + 
+    //"<br>Longitude: " + position.coords.longitude;
     $('#spinner').hide();
     window.location.href = "/wifi?latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude;
 }
@@ -140,7 +140,7 @@ function mark_wifis() {
 
         google.maps.event.addListener(wifiMarks["wifiMark" + i], 'click', (function(marker, i) {
             return function() {
-                content = result_list[i]["name"] + ": " + result_list[i]["url"];
+                content = result_list[i]["name"] + ": <a href=" + result_list[i]["url"] + ">" + result_list[i]["url"] + "</a>";
                 infoWindow.setContent(content);
                 infoWindow.open(map, marker);
             }
