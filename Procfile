@@ -1,1 +1,1 @@
-web: gunicorn wi-finder:app --log-file=-
+web: gunicorn wifinder:app --log-file=-
