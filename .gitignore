@@ -5,5 +5,5 @@ env/
 bin/
 lib/
 include/
-venv/
+venv
 results.txt

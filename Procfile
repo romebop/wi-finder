@@ -1,0 +1,1 @@
+web: gunicorn wi-finder:app --log-file=-
