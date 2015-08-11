@@ -27,7 +27,7 @@ Documentation:
 
 App:
 
-* python wi-finder.py
+* python wifinder.py
 
 SMC Datasets (from [Open Data Portal](https://data.smcgov.org/))
 ----------------------------------------------------------------
