@@ -3,6 +3,9 @@ import os
 import subprocess
 
 def has_wifi(url):
+
+        print(url)
+
         FNULL = open(os.devnull, 'w')
         subprocess.call("scrapy parse {url} --spider=wifispider".format(url=url).split(), stdout=FNULL, stderr=subprocess.STDOUT)
 
@@ -17,10 +20,17 @@ def has_wifi(url):
         for dl in dls:
                 temp_field = dl.dt.string.strip()
                 temp_val = dl.dd.string.strip()
+
+                print("@@@@@ " + temp_field)
+                print("@@@@@ " + temp_val)
+                
                 if temp_field == "Wi-Fi":
                         wifi = "No" 
                         if temp_val != "No":
                                 wifi = "Yes"
+
+        print(wifi)
+
         return wifi
 
 if __name__ == '__main__':

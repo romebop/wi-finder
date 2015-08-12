@@ -1,6 +1,6 @@
 from flask import Flask, url_for, render_template, request
 import yelp_scrape
-from wifi_scraper import scrape_for_wifi
+from wifi_scraper import request_scrape
 
 from itertools import islice
 import json
@@ -29,8 +29,8 @@ def wifi_results():
         return "SOMETHING WENT WRONG"
 
     new_results = []
-    for key, value in take(10,yelp_results.iteritems()):
-        if scrape_for_wifi.has_wifi(value[0]) == "Yes":
+    for key, value in take(10, yelp_results.iteritems()):
+        if request_scrape.has_wifi(value[0]) == "Yes":
             item = {}
             item['url'] = value[0]
             item['name'] = value[1]
