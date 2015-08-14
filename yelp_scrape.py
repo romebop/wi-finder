@@ -3,13 +3,9 @@ from requests_oauthlib import OAuth1
 import json
 import pprint
 
-
-
 latitude = 37.58975467000005
-longitide = -122.31838430299996
+longitude = -122.31838430299996
 address = "1900 Coyote Point Drive"
-
-
 auth = OAuth1('PL4B79wNrtpTta7-V-PZTg', 'El_EkBcQyCNCpeaj6Y1yQPeUHIA', 'PeLWALWDy_zWzgMAVgp9_zQzwg-PdJJn', '6UtP4kEHB9D6u0HyOhy1y_gNxso')
 
 # dictionary structure - {(latitude, longitude): (url, name)}

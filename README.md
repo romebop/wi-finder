@@ -19,37 +19,17 @@ Set up environment:
 * . env/bin/activate
 * pip install -r requirements.txt
 
-
-Documentation:
-
-* [Familiarize Flask](http://flask.pocoo.org/docs/0.10/quickstart/)
-* [Familiarize Jinja](http://jinja.pocoo.org/) (Python Templating)
-
 App:
 
 * python wifinder.py
 
-SMC Datasets (from [Open Data Portal](https://data.smcgov.org/))
-----------------------------------------------------------------
-Public Wifi Locations and Status
-> https://goo.gl/1HK0MD
-
-Public Wifi Use Over Time
-> https://goo.gl/XsCyz0
-
 Useful Links
 ------------
-Socrata Open Data API
-> https://github.com/xmunoz/sodapy
-
-D3
-> https://github.com/mbostock/d3/wiki
-
-ArcGIS API for Javascript
-> https://developers.arcgis.com/javascript/jshelp/
+Flask
+> http://flask.pocoo.org/docs/0.10/quickstart/
 
 Yelp API
 > https://www.yelp.com/developers/documentation
 
-Python Scraper
-> http://scrapy.org/
+Python Requests
+> http://www.python-requests.org/en/latest/
