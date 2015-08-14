@@ -1,6 +1,4 @@
 from bs4 import BeautifulSoup
-import os
-import subprocess
 import requests
 
 def has_wifi(url):

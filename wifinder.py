@@ -1,6 +1,6 @@
 from flask import Flask, url_for, render_template, request
 import yelp_scrape
-from wifi_scraper import request_scrape
+import request_scrape
 
 from itertools import islice
 import json

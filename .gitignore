@@ -7,3 +7,5 @@ lib/
 include/
 venv
 results.txt
+# Other
+tester.py
