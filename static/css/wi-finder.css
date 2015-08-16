@@ -1,19 +1,85 @@
-#map-canvas {
-  height: 800px;
-  width: 800px;
-  background-color: #3498db;
+html, body {
+  height: 100%;
+}
+
+/* index page */
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(-45deg, #f6e6bd, #f6e6bd 5px, #e6c5ac 1px, #e6c5ac 6px);
+}
+
+#wifinder {
   position: absolute;
-  left: 50%;
-  margin: 30px 0 0 -400px;
+  width: 500px;
+  height: 640px;
+  left: calc(50% - 300px);
+  top: calc(50% - 320px);
+  padding: 0px 30px;
+  background: #73a4bd;
+  border-radius: 10px;
+  box-shadow: #103941 -1px 1px 3px; 
+}
+
+#title {
+    float: left;
+    font-size: x-large;
+    font-family: sans-serif;
+    color: white;
+    margin-top: 20px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#button {
+  float: right;
+  margin-top: 20px;
+}
+
+.btn-primary {
+  background: #a47352;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:active:focus {
+  background: #735a20;
+}
+
+#host-form {
+  margin-top: 63px;
+}
+
+#map-canvas {
+  position: absolute;
+  height: 499px;
+  width: 499px;
+  left: calc(50% - 250px);
+  margin-top: 20px;
+}
+
+#spinner{
+  position: absolute;
+  left: calc(50% + 267px);
+  top: calc(50% - 220px);
+}
+
+#snorlax {
+  position: absolute;
+  left: calc(50% + 175px);
+  top: calc(50% - 230px);
+  width: 300px;
+  height: 300px;
+}
+
+#about {
+  position: absolute;
+  left: calc(50% + 260px);
+  top: calc(50% - 60px);
 }
 
 .spinner {
-  margin: 100px auto;
-  width: 40px;
-  height: 40px;
-  position: relative;
-  text-align: center;
-  
+  width: 15px;
+  height: 15px;
   -webkit-animation: rotate 2.0s infinite linear;
   animation: rotate 2.0s infinite linear;
 }
@@ -54,4 +120,28 @@
     transform: scale(1.0);
     -webkit-transform: scale(1.0);
   }
+}
+
+/* about page */
+
+#team7 {
+  position: absolute;
+  width: 500px;
+  height: 375px;
+  left: calc(50% - 250px);
+  top: calc(50% - 250px);
+  border-radius: 5px;
+}
+
+#team7info {
+  position: absolute;
+  left: calc(50% - 230px);
+  top: calc(50% + 130px);
+  color: #315a7b;
+}
+
+#back {
+  position: absolute;
+  left: calc(50% - 64px);
+  top: calc(50% + 154px);
 }

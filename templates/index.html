@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
   <head>
@@ -14,55 +14,33 @@
 
   <body>
 
-    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">WiFinder</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="#">Blargh</a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-
 <div class="container">
-  <div class="jumbotron" style="height: 1100px">
-    <center>
-        <h1>Find Wi-Fi Hotspots</h1>
-        <p><button class="btn btn-primary btn-lg" role="button" onclick="getLocation()">Use Current Location</button></p>
-                <form role="form" action="/wifi" id="host-form">
-                    <div class="form-group" style="display:inline;">
-                        <div class="input-group">
-                            <input type="text" class="form-control" style="border-bottom-left-radius: 4px;border-top-left-radius: 4px;" name="address" id="hostname-box" placeholder="Some Address goes here" value="">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit">
-                                    <span class="glyphicon glyphicon-search"></span>
-                                </button>
-                            </span>
-                        </div>
-                    </div>
-                </form>
-        <div class="spinner" style="display:none" id="spinner">
-          <div class="dot1"></div>
-          <div class="dot2"></div>
+  
+  <div id="wifinder">
+    <div id="title">Find Wi-Fi Hotspots</div>
+    <button id="button" class="btn btn-primary" role="button" onclick="getLocation()">My Location</button>
+    <form id="host-form" role="form" onsubmit="showSpinner()" action="/wifi">
+        <div class="form-group" style="display:inline;">
+            <div class="input-group">
+                <input type="text" class="form-control" style="border-bottom-left-radius: 4px;border-top-left-radius: 4px;" name="address" id="hostname-box" placeholder="Enter Address" value="">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
         </div>
-        <div id="map-canvas"></div>
-    </center>
-    <div id="location_info"></div>
-    <div id="mainWindow" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline'" style="width:100%; height:100%;">
-      <div id="map" class="roundedCorners shadow" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'"></div>
-    </div>
+    </form>
+    <div id="map-canvas"></div>
   </div>
+
+  <img id="snorlax" src="static/images/snorlax.png" alt="no snorlax :<">
+  <div id="spinner" class="spinner" style="display:none">
+    <div class="dot1"></div>
+    <div class="dot2"></div>
+  </div>
+  <a id="about" href="/about">about</a>
+
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -71,12 +49,16 @@
 <!--<script src="static/js/wi-finder.js"></script>-->
 <script>
 
+function showSpinner() {
+    $('#spinner').show();
+}
+
 var x = document.getElementById("location_info");
     
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
-        $('#spinner').show();
+        showSpinner();
     } else { 
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
@@ -85,20 +67,17 @@ function getLocation() {
 function showPosition(position) {
     //x.innerHTML = "Latitude: " + position.coords.latitude + 
     //"<br>Longitude: " + position.coords.longitude;
-    $('#spinner').hide();
     window.location.href = "/wifi?latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude;
 }
 
 function initialize() {
-
+    // rome's place
     var HomePos = new google.maps.LatLng(37.855516, -122.261305);
-
     var mapOptions = {
         center: HomePos,
         zoom: 17
     };
     var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
     var marker = new google.maps.Marker({
         position: HomePos,
         map: map,
@@ -107,15 +86,12 @@ function initialize() {
 }
 
 function mark_wifis() {
-
     var bounds = new google.maps.LatLngBounds();
     var infoWindow = new google.maps.InfoWindow();
-
     var mapOptions = {
         zoom: 17
     };
     var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
     var wifiPos
     var wifiMarks = {}
     for (var i = 0; i < result_list.length; i++) {
@@ -126,7 +102,6 @@ function mark_wifis() {
             title: result_list[i]['name']
         });
         bounds.extend(wifiPos);
-
         google.maps.event.addListener(wifiMarks["wifiMark" + i], 'click', (function(marker, i) {
             return function() {
                 content = result_list[i]["name"] + ": <a href=" + result_list[i]["url"] + ">" + result_list[i]["url"] + "</a>";
@@ -145,7 +120,7 @@ if (result_list.length) {
     google.maps.event.addDomListener(window, 'load', mark_wifis);
 } else {
     google.maps.event.addDomListener(window, 'load', initialize);
-    console.log("this is where rome and james live :3");
+    //console.log("this is where rome and james live :3");
 }
 
 </script>
