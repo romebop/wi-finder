@@ -45,6 +45,13 @@ html, body {
   background: #735a20;
 }
 
+.btn-default:focus,
+.btn-default.focus {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: white;
+}
+
 #host-form {
   margin-top: 63px;
 }
@@ -123,6 +130,12 @@ html, body {
 }
 
 /* about page */
+
+#snorlax1 {
+  position: absolute;
+  left: calc(50% + 250px);
+  top: calc(50% + 50px);
+}
 
 #team7 {
   position: absolute;
