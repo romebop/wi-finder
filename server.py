@@ -35,9 +35,9 @@ def wifi_results():
     address = request.args.get('address', '')
 
     if latitude != '' and longitude != '':
-        yelp_results = yelp_scrape.get_yelp_coord(latitude, longitude)
+        yelp_results = yelp_scrape.get_yelp_results_by_coord(latitude, longitude)
     elif address != '':
-        yelp_results = yelp_scrape.get_yelp_address(address)
+        yelp_results = yelp_scrape.get_yelp_results_by_address(address)
     else:
         return "SOMETHING WENT WRONG"
 
