@@ -4,6 +4,7 @@ import request_scrape
 from itertools import islice
 import json
 import os
+import threading
 
 def take(n, iterable):
     "Return first n items of the iterable as a list"
@@ -11,9 +12,21 @@ def take(n, iterable):
 
 app = Flask(__name__)
 
+new_results = []
+
 @app.route('/')
 def index():
     return render_template('index.html', stuff=[])
+
+def worker(key, value):
+    if value[0] and request_scrape.has_wifi(value[0]) == "Yes":
+        item = {}
+        item['url'] = value[0]
+        item['name'] = value[1]
+        item['latitude'] = key[0]
+        item['longitude'] = key[1]
+        new_results.append(item)
+        return item
 
 @app.route('/wifi')
 def wifi_results():
@@ -29,18 +42,13 @@ def wifi_results():
         return "SOMETHING WENT WRONG"
 
     try:
-        new_results = []
+        threads = []
         for key, value in yelp_results.iteritems():
-            if request_scrape.has_wifi(value[0]) == "Yes":
-                item = {}
-                item['url'] = value[0]
-                item['name'] = value[1]
-                item['latitude'] = key[0]
-                item['longitude'] = key[1]
-                new_results.append(item)
-                if len(new_results) == 10:
-                    break
-
+            t = threading.Thread(target = worker, args=(key,value,))
+            t.start()
+            threads.append(t)
+        for t in threads:
+            t.join()
         return render_template('index.html', stuff=json.dumps(new_results));
     except Exception, e:
         print "************************************"
