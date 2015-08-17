@@ -1,5 +1,5 @@
 from flask import Flask, url_for, render_template, request, send_from_directory
-import yelp_scrape
+import yelp_api
 import request_scrape
 from itertools import islice
 import json
@@ -35,9 +35,9 @@ def wifi_results():
     address = request.args.get('address', '')
 
     if latitude != '' and longitude != '':
-        yelp_results = yelp_scrape.get_yelp_results_by_coord(latitude, longitude)
+        yelp_results = yelp_api.get_yelp_results_by_coord(latitude, longitude)
     elif address != '':
-        yelp_results = yelp_scrape.get_yelp_results_by_address(address)
+        yelp_results = yelp_api.get_yelp_results_by_address(address)
     else:
         return "SOMETHING WENT WRONG"
 
