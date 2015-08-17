@@ -3,6 +3,8 @@ import requests
 
 def has_wifi(url):
 
+	print("@@@ we're here: " + url)
+
 	wifi = "N/A"
 
 	response = requests.get(url)
