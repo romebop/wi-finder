@@ -28,20 +28,24 @@ def wifi_results():
     else:
         return "SOMETHING WENT WRONG"
 
-    new_results = []
-    print(yelp_results)
-    for key, value in yelp_results.iteritems():
-        if request_scrape.has_wifi(value[0]) == "Yes":
-            item = {}
-            item['url'] = value[0]
-            item['name'] = value[1]
-            item['latitude'] = key[0]
-            item['longitude'] = key[1]
-            new_results.append(item)
-            if len(new_results) == 10:
-                break
+    try:
+        new_results = []
+        for key, value in yelp_results.iteritems():
+            if request_scrape.has_wifi(value[0]) == "Yes":
+                item = {}
+                item['url'] = value[0]
+                item['name'] = value[1]
+                item['latitude'] = key[0]
+                item['longitude'] = key[1]
+                new_results.append(item)
+                if len(new_results) == 10:
+                    break
 
-    return render_template('index.html', stuff=json.dumps(new_results));
+        return render_template('index.html', stuff=json.dumps(new_results));
+    except Exception, e:
+        print "************************************"
+        print e
+        print "------------------------------------"
 
 @app.route('/about')
 def about():
