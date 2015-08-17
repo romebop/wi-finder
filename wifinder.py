@@ -29,7 +29,8 @@ def wifi_results():
         return "SOMETHING WENT WRONG"
 
     new_results = []
-    for key, value in take(10, yelp_results.iteritems()):
+    print(yelp_results)
+    for key, value in yelp_results.iteritems():
         if request_scrape.has_wifi(value[0]) == "Yes":
             item = {}
             item['url'] = value[0]
@@ -37,6 +38,8 @@ def wifi_results():
             item['latitude'] = key[0]
             item['longitude'] = key[1]
             new_results.append(item)
+            if len(new_results) == 10:
+                break
 
     return render_template('index.html', stuff=json.dumps(new_results));
 
