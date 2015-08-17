@@ -21,7 +21,7 @@ Set up environment:
 
 App:
 
-* python wifinder.py
+* python server.py
 
 Useful Links
 ------------

@@ -7,7 +7,7 @@ def has_wifi(url):
 
 	response = requests.get(url)
 
-	soup = BeautifulSoup(response.text)
+	soup = BeautifulSoup(response.text, "html.parser")
 	short_def_list = soup.find("div", {"class": "short-def-list"})
 	if short_def_list is None:
 		return wifi
