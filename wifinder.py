@@ -19,7 +19,7 @@ def index():
     return render_template('index.html', stuff=[])
 
 def worker(key, value):
-    if value[0] and request_scrape.has_wifi(value[0]) == "Yes":
+    if request_scrape.has_wifi(value[0]) == "Yes":
         item = {}
         item['url'] = value[0]
         item['name'] = value[1]
@@ -43,7 +43,7 @@ def wifi_results():
 
     try:
         threads = []
-        for key, value in yelp_results.iteritems():
+        for key, value in take(10, yelp_results.iteritems()):
             t = threading.Thread(target = worker, args=(key,value,))
             t.start()
             threads.append(t)
@@ -51,9 +51,7 @@ def wifi_results():
             t.join()
         return render_template('index.html', stuff=json.dumps(new_results));
     except Exception, e:
-        print "************************************"
         print e
-        print "------------------------------------"
 
 @app.route('/about')
 def about():
