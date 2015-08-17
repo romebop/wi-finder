@@ -9,6 +9,8 @@ def has_wifi(url):
 
 	soup = BeautifulSoup(response.text)
 	short_def_list = soup.find("div", {"class": "short-def-list"})
+	if short_def_list is None:
+		return
 	dls = short_def_list.find_all('dl')
 	# print dls
 
