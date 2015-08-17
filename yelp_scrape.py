@@ -5,7 +5,7 @@ import pprint
 
 latitude = 37.58975467000005
 longitude = -122.31838430299996
-address = "1900 Coyote Point Drive"
+address = "2128 Oxford St, Berkeley"
 auth = OAuth1('PL4B79wNrtpTta7-V-PZTg', 'El_EkBcQyCNCpeaj6Y1yQPeUHIA', 'PeLWALWDy_zWzgMAVgp9_zQzwg-PdJJn', '6UtP4kEHB9D6u0HyOhy1y_gNxso')
 
 # dictionary structure - {(latitude, longitude): (url, name)}
@@ -19,7 +19,7 @@ def output(yelp_json):
     return outDict
 
 def get_yelp_address(address):
-    search_terms = ["restaurants", "cafe", "coffee", "bar"]
+    search_terms = ["cafe", "coffee", "restaurants", "bar"]
     finalOut = {}
     for term in search_terms:
         query = {'term': term, 'location':address, 'sort':'1', 'limit':20}
