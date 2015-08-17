@@ -1,3 +1,7 @@
+'''
+Get data from smcgov.org
+'''
+
 import json
 import requests
 import pprint
