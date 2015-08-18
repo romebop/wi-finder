@@ -7,11 +7,13 @@ import grequests
 
 import time
 
+THROTTLE = 10
+
 def has_wifi(yelp_api_results):
     results = []
     yelp_scrape_requests = (grequests.get(url) for url in yelp_api_results)
 
-    for response in grequests.map(yelp_scrape_requests):
+    for response in grequests.map(yelp_scrape_requests, size=THROTTLE):
         if response.status_code != 200:
             print "ERROR: Got {status_code} for url: {url}".format(status_code=response.status_code, url=response.url)
         else:
