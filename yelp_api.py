@@ -5,7 +5,7 @@ import pprint
 # CONSTANTS
 YELP_AUTH = OAuth1('PL4B79wNrtpTta7-V-PZTg', 'El_EkBcQyCNCpeaj6Y1yQPeUHIA', 'PeLWALWDy_zWzgMAVgp9_zQzwg-PdJJn', '6UtP4kEHB9D6u0HyOhy1y_gNxso')
 YELP_BASE_URL = 'http://api.yelp.com/v2/search/'
-SEARCH_TERMS = ["cafe", "coffee", "restaurants", "bar"]
+SEARCH_TERMS = ["wifi"]
 
 
 # dictionary structure - {(latitude, longitude): (url, name)}
