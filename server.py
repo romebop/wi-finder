@@ -24,8 +24,7 @@ def wifi_results():
 
     #print len(yelp_results)
     results = yelp_results.values()
-    first_ten = results[:10]
-    return render_template('index.html', stuff=json.dumps(first_ten))
+    return render_template('index.html', stuff=json.dumps(results))
 
 @app.route('/about')
 def about():

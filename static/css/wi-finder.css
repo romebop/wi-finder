@@ -97,9 +97,8 @@ html, body {
   display: inline-block;
   position: absolute;
   top: 0;
-  background-color: #333;
+  background-color: #a47352;
   border-radius: 100%;
-  color: #103941;
   -webkit-animation: bounce 2.0s infinite ease-in-out;
   animation: bounce 2.0s infinite ease-in-out;
 }

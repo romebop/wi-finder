@@ -95,6 +95,7 @@ function mark_wifis() {
     var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
     var wifiPos
     var wifiMarks = {}
+    var markCount = 0
     for (var i = 0; i < result_list.length; i++) {
         wifiPos = new google.maps.LatLng(result_list[i]['latitude'], result_list[i]['longitude']);
         wifiMarks["wifiMark" + i] = new google.maps.Marker({
@@ -102,7 +103,12 @@ function mark_wifis() {
             map: map,
             title: result_list[i]['name']
         });
-        bounds.extend(wifiPos);
+        markCount++;
+        //console.log(markCount);
+        if (markCount <= 5) {
+            //console.log("bound extended");
+            bounds.extend(wifiPos);
+        }
         google.maps.event.addListener(wifiMarks["wifiMark" + i], 'click', (function(marker, i) {
             return function() {
                 content = result_list[i]["name"] + ": <a href=" + result_list[i]["url"] + ">" + result_list[i]["url"] + "</a>";
