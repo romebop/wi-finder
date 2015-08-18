@@ -5,6 +5,8 @@ Get result json from yelp_api.py and start scraping yelp
 from bs4 import BeautifulSoup
 import grequests
 
+import time
+
 def has_wifi(yelp_api_results):
     results = []
     yelp_scrape_requests = (grequests.get(url) for url in yelp_api_results)
@@ -13,7 +15,7 @@ def has_wifi(yelp_api_results):
         if response.status_code != 200:
             print "ERROR: Got {status_code} for url: {url}".format(status_code=response.status_code, url=response.url)
         else:
-            print "Request for {0} took {1}".format(response.url, response.elapsed)
+            start = time.time()
             soup = BeautifulSoup(response.text, "html.parser")
             short_def_list = soup.find("div", {"class": "short-def-list"})
             if short_def_list is not None:
@@ -26,6 +28,8 @@ def has_wifi(yelp_api_results):
 
                     if temp_field == "Wi-Fi" and temp_val != "No":
                         results.append(yelp_api_results[response.url])
+            bs_time = time.time() - start
+            print "Request for {url} took {request_time}. BeautifulSoup took {bs_time} to parse it".format(url=response.url, request_time=response.elapsed, bs_time=bs_time)
 
     return results
 
