@@ -1,32 +1,14 @@
 from flask import Flask, url_for, render_template, request, send_from_directory
 import yelp_api
-import request_scrape
-from itertools import islice
+import scrape_yelp
 import json
 import os
-import threading
-
-def take(n, iterable):
-    "Return first n items of the iterable as a list"
-    return list(islice(iterable, n))
 
 app = Flask(__name__)
-
-new_results = []
 
 @app.route('/')
 def index():
     return render_template('index.html', stuff=[])
-
-def worker(key, value):
-    if request_scrape.has_wifi(value[0]) == "Yes":
-        item = {}
-        item['url'] = value[0]
-        item['name'] = value[1]
-        item['latitude'] = key[0]
-        item['longitude'] = key[1]
-        new_results.append(item)
-        return item
 
 @app.route('/wifi')
 def wifi_results():
@@ -41,17 +23,7 @@ def wifi_results():
     else:
         return "SOMETHING WENT WRONG"
 
-    try:
-        threads = []
-        for key, value in take(10, yelp_results.iteritems()):
-            t = threading.Thread(target = worker, args=(key,value,))
-            t.start()
-            threads.append(t)
-        for t in threads:
-            t.join()
-        return render_template('index.html', stuff=json.dumps(new_results));
-    except Exception, e:
-        print e
+    return render_template('index.html', stuff=json.dumps(scrape_yelp.has_wifi(yelp_results)))
 
 @app.route('/about')
 def about():

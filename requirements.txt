@@ -1,5 +1,8 @@
 beautifulsoup4==4.4.0
 Flask==0.10.1
+gevent==1.0.2
+greenlet==0.4.7
+grequests==0.2.0
 gunicorn==19.3.0
 itsdangerous==0.24
 Jinja2==2.8
