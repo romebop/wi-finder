@@ -1,6 +1,5 @@
 from flask import Flask, url_for, render_template, request, send_from_directory
 import yelp_api
-import scrape_yelp
 import json
 import os
 
@@ -23,7 +22,10 @@ def wifi_results():
     else:
         return "SOMETHING WENT WRONG"
 
-    return render_template('index.html', stuff=json.dumps(scrape_yelp.has_wifi(yelp_results)))
+    #print len(yelp_results)
+    results = yelp_results.values()
+    first_ten = results[:10]
+    return render_template('index.html', stuff=json.dumps(first_ten))
 
 @app.route('/about')
 def about():
