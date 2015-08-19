@@ -79,18 +79,12 @@ function showPosition(position) {
 }
 
 function initialize() {
-    // rome's place
-    var HomePos = new google.maps.LatLng(37.855516, -122.261305);
+    var HomePos = new google.maps.LatLng(37.8717, -122.2728);
     var mapOptions = {
         center: HomePos,
-        zoom: 17
+        zoom: 15
     };
     var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    var marker = new google.maps.Marker({
-        position: HomePos,
-        map: map,
-        title: "My House!"
-    });
 }
 
 function mark_wifis() {
