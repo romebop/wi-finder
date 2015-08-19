@@ -20,7 +20,9 @@ def wifi_results():
     elif address != '':
         yelp_results = yelp_api.get_yelp_results_by_address(address)
     else:
-        return "SOMETHING WENT WRONG"
+        #empty search field
+        return render_template('index.html', stuff=[])
+
     return render_template('index.html', stuff=json.dumps(yelp_results))
 
 @app.route('/about')
