@@ -8,7 +8,7 @@ YELP_BASE_URL = 'http://api.yelp.com/v2/search/'
 SEARCH_TERMS = ["wifi"]
 
 
-# dictionary structure - {(latitude, longitude): (url, name)}
+# dictionary structure - {url: {latitude, longitude, name, url}}
 def _parse_output_from_yelp(yelp_json):
     result = {}
     if 'businesses' not in yelp_json:
@@ -54,10 +54,10 @@ if __name__ == '__main__':
     # Test data
     latitude = 37.58975467000005
     longitude = -122.31838430299996
-    address = "2128 Oxford St, Berkeley"
+    #address = "2128 Oxford St, Berkeley"
 
-    #a = get_yelp_results_by_coord(latitude, longitide)
-    a = get_yelp_results_by_address(address)
+    a = get_yelp_results_by_coord(latitude, longitude)
+    #a = get_yelp_results_by_address(address)
     pprint.pprint(a)
     print len(a)
 

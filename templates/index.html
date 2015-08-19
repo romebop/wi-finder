@@ -23,7 +23,7 @@
     <form id="host-form" role="form" onsubmit="showSpinner()" action="/wifi">
         <div class="form-group" style="display:inline;">
             <div class="input-group">
-                <input type="text" class="form-control" style="border-bottom-left-radius: 4px;border-top-left-radius: 4px;" name="address" id="hostname-box" placeholder="Enter Address" value="">
+                <input type="text" class="form-control" style="border-bottom-left-radius: 4px;border-top-left-radius: 4px;" name="address" id="searchTextField" placeholder="Enter Address" value="">
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="submit">
                         <span class="glyphicon glyphicon-search"></span>
@@ -47,6 +47,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9dGZjAQMir1xyszhIdtsHq4LisfTNURA"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
 <!--<script src="static/js/wi-finder.js"></script>-->
 <script>
 
@@ -55,6 +56,12 @@ function showSpinner() {
 }
 
 var x = document.getElementById("location_info");
+var input = document.getElementById('searchTextField');
+var options = {
+  types: ['geocode']
+};
+
+autocomplete = new google.maps.places.Autocomplete(input, options);
     
 function getLocation() {
     if (navigator.geolocation) {
