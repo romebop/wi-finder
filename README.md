@@ -1,6 +1,8 @@
-Team 7 Members
+Wifinder
 --------------
 http://wifinder1.herokuapp.com/
+
+Team Members:
 
 * Ace
 * James
