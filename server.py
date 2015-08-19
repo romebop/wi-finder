@@ -20,7 +20,8 @@ def wifi_results():
     elif address != '':
         yelp_results = yelp_api.get_yelp_results_by_address(address)
     else:
-        return "SOMETHING WENT WRONG"
+        #empty search field
+        return render_template('index.html', stuff=[])
 
     #print len(yelp_results)
     results = yelp_results.values()
