@@ -98,11 +98,11 @@ function mark_wifis() {
     var wifiMarks = {}
     var markCount = 0
     for (var i = 0; i < result_list.length; i++) {
-        wifiPos = new google.maps.LatLng(result_list[i]['latitude'], result_list[i]['longitude']);
+        wifiPos = new google.maps.LatLng(result_list[i][0], result_list[i][1]);
         wifiMarks["wifiMark" + i] = new google.maps.Marker({
             position: wifiPos,
             map: map,
-            title: result_list[i]['name']
+            title: result_list[i][2]
         });
         markCount++;
         //console.log(markCount);
@@ -112,7 +112,7 @@ function mark_wifis() {
         }
         google.maps.event.addListener(wifiMarks["wifiMark" + i], 'click', (function(marker, i) {
             return function() {
-                content = result_list[i]["name"] + ": <a href=" + result_list[i]["url"] + ">" + result_list[i]["url"] + "</a>";
+                content = result_list[i][2] + ": <a href=" + result_list[i][3] + ">" + result_list[i][3] + "</a>";
                 infoWindow.setContent(content);
                 infoWindow.open(map, marker);
             }
