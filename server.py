@@ -21,10 +21,7 @@ def wifi_results():
         yelp_results = yelp_api.get_yelp_results_by_address(address)
     else:
         return "SOMETHING WENT WRONG"
-
-    #print len(yelp_results)
-    results = yelp_results.values()
-    return render_template('index.html', stuff=json.dumps(results))
+    return render_template('index.html', stuff=json.dumps(yelp_results))
 
 @app.route('/about')
 def about():
