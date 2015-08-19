@@ -14,6 +14,39 @@ html, body {
   background: #73a4bd;
 }
 
+#title {
+    float: left;
+    font-size: x-large;
+    font-family: sans-serif;
+    color: white;
+    margin-top: 20px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#button {
+  float: right;
+  margin-top: 20px;
+}
+
+.btn-primary {
+  background: #a47352;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:active:focus {
+  background: #735a20;
+}
+
+.btn-default:focus,
+.btn-default.focus {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: white;
+}
+
+#host-form {
+  margin-top: 63px;
+}
+
 #map-canvas {
     position: absolute;
     height: 78%;
