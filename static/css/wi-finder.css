@@ -133,7 +133,11 @@ html, body {
 #snorlax1 {
   position: absolute;
   left: calc(50% + 250px);
-  top: calc(50% + 50px);
+  top: calc(50% + 78px);
+}
+
+#snorlax1 {
+  cursor: pointer;
 }
 
 #team7 {
@@ -141,19 +145,13 @@ html, body {
   width: 500px;
   height: 375px;
   left: calc(50% - 250px);
-  top: calc(50% - 250px);
+  top: calc(50% - 220px);
   border-radius: 5px;
 }
 
 #team7info {
   position: absolute;
-  left: calc(50% - 230px);
-  top: calc(50% + 130px);
+  left: calc(50% - 223px);
+  top: calc(50% + 155px);
   color: #315a7b;
-}
-
-#back {
-  position: absolute;
-  left: calc(50% - 64px);
-  top: calc(50% + 154px);
 }
